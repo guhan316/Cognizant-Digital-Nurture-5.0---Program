@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Task 1: HTML5 Base Template -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cuddalore Community Portal - Guhan| DN 5.0</title>
+
+    <!-- Task 1 CSS: Google Font link (also used in @import inside styles.css) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,400;0,700;1,400&family=Poppins:wght@600&display=swap">
+
+    <!-- Task 1 CSS: External stylesheet -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Task 1 CSS: Embedded <style> for body background (shows inline vs embedded vs external) -->
+    <style>
+        /* Embedded style demo - body bg also defined in styles.css (external wins due to order) */
+        body { background-color: #f5f0eb; }
+    </style>
+</head>
+<body>
+
+<!-- Navigation -->
+<header id="mainHeader">
+    <!-- Task 1 CSS: Inline style on h1 to make it a different color (demo only) -->
+    <h1 style="color: #fff;">Cuddalore Community Portal</h1>
+    <small>Guhan | Cognizant Digital Nurture 5.0</small>
+
+    <!-- Task 2 HTML / Task 6 CSS: nav with ul list (bullets removed via CSS) -->
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#events">Events</a></li>
+            <li><a href="#bulletin">Bulletin</a></li>
+            <li><a href="#register">Register</a></li>
+            <li><a href="help.html" target="_blank">Help</a></li>
+        </ul>
+    </nav>
+</header>
+
+<!-- Main -->
+<main>
+
+    <!-- Home Section -->
+    <section id="home">
+        <!-- Task 3 HTML: id banner | Task 4 CSS: gradient background -->
+        <div id="welcomeBanner">
+            <h2>Welcome, Logged-in Resident!</h2>
+            <p>Welcome to your Cuddalore community dashboard.</p>
+        </div>
+
+        <p style="margin-top:12px">
+            <span style="color:red; font-weight:bold">Special Offer:</span>
+            Register today and get a free <span class="highlight">lunch token!</span>
+        </p>
+        <p>Note: <span class="highlight">Admissions are on a first-come, first-served basis.</span></p>
+
+        <!-- Task 7 HTML: video -->
+        <h3>Event Promo Video</h3>
+        <video id="promoVideo" width="300" height="200" controls>
+            <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <p id="videoStatus" style="color:gray; font-style:italic; font-size:13px"></p>
+    </section>
+
+    <!-- Events Section -->
+    <section id="events">
+        <!-- Task 4 HTML: image table | Task 7 CSS: table zebra striping -->
+        <h2>Past Community Events Gallery</h2>
+       <table>
+            <caption>Double-click any image to zoom in</caption>
+            <tr>
+                <td>
+                    <img class="evt-img" src="images/jallikattu.png" alt="Jallikattu Festival" title="Jallikattu Festival" ondblclick="zoomImg(this)">
+                    <p>Jallikattu Festival</p>
+                </td>
+                <td>
+                    <img class="evt-img" src="images/music.jpg" alt="Music Night" title="Margazhi Isai" ondblclick="zoomImg(this)">
+                    <p> Music Night</p>
+                </td>
+                <td>
+                    <img class="evt-img" src="images/bharatanatiyam.jpg" alt="Bharatanatyam Show" title="Bharatanatyam" ondblclick="zoomImg(this)">
+                    <p>Bharatanatyam Show</p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <img class="evt-img" src="images/foodfest.jpg" alt="FoodFest" title="Village Food Fest" ondblclick="zoomImg(this)">
+                    <p>Food Fest</p>
+                </td>
+                <td>
+                    <img class="evt-img" src="images/writing.jpg" alt="Creative Workshop" title="Poem Writing" ondblclick="zoomImg(this)">
+                    <p>Creative Writing Workshop</p>
+                </td>
+                <td>
+                    <img class="evt-img" src="images/web-Gully_Cricket.jpg" alt="Gully Cricket Cup" title="Local Cricket Match" ondblclick="zoomImg(this)">
+                    <p>Gully Cricket Cup</p>
+                </td>
+            </tr>
+        </table>
+    </section>
+
+    <!-- Register Section -->
+    <section id="register">
+        <!-- Task 5 & 6: form with input types, events, validation, output -->
+        <h2>Event Registration</h2>
+        <form id="myForm" onsubmit="submitForm(event)">
+
+            <div class="grp">
+                <label for="name">Full Name *</label>
+                <input type="text" id="name" placeholder="e.g. Guhan Rajasekaran" required autofocus>
+            </div>
+            <div class="grp">
+                <label for="email">Email Address *</label>
+                <input type="email" id="email" placeholder="abcdefgh@example.com" required>
+            </div>
+            <div class="grp">
+                <label for="phone">Phone Number (Task 6: onblur validation)</label>
+                <input type="tel" id="phone" placeholder="9876543210" onblur="validatePhone(this)">
+            </div>
+            <div class="grp">
+                <label for="date">Event Date *</label>
+                <input type="date" id="date" required>
+            </div>
+            <div class="grp">
+                <label for="event">Select Event * (Task 6: onchange fee | Task 8: storage)</label>
+                <select id="event" required onchange="onEventChange(this)">
+                    <option value="">-- Choose an Event --</option>
+                    <option value="music">Bharatanatyam Show (Rs.500)</option>
+                    <option value="dance">Music Fest (Rs.300)</option>
+                    <option value="food">Food Fest (Free)</option>
+                </select>
+                <p id="feeInfo" style="color:#1a6fa8; font-weight:bold; margin:5px 0 0; font-size:14px"></p>
+            </div>
+            <div class="grp">
+                <label for="feedback">Feedback (Task 6: onkeyup character count)</label>
+                <textarea id="feedback" rows="3" placeholder="Share your thoughts about the event..." onkeyup="countChars(this)"></textarea>
+                <small id="charCount" style="color:gray">0 characters typed</small>
+            </div>
+
+            <!-- Task 6: onclick logs | Task 5: output element -->
+            <button type="submit" class="btn btn-green" onclick="console.log('Submit clicked')">Submit Registration</button>
+            <button type="button" class="btn btn-red" onclick="clearStorage()">Clear Preferences</button>
+            <output id="result"></output>
+        </form>
+
+        <hr>
+
+        <h3>Find Nearest Event Hub</h3>
+        <button type="button" class="btn btn-purple" onclick="findLocation()">Find Nearby Events</button>
+        <p id="geoStatus" style="font-weight:bold; font-size:14px"></p>
+    </section>
+
+</main>
+
+<!-- Footer -->
+<footer><p>Thank you for visiting our event page! | Guhan's Submission - Cognizant Digital Nurture 5.0</p>
+</footer>
+
+<!-- JavaScript (HTML5 module tasks unchanged) -->
+<script>
+    let formDirty = false;
+    document.getElementById('myForm').addEventListener('input', () => formDirty = true);
+
+    function validatePhone(el) {
+        console.log('onblur: phone field validated');
+        if (el.value && !/^[6-9]\d{9}$/.test(el.value)) {
+            alert('Please enter a valid 10-digit Indian mobile number!');
+            el.style.borderColor = 'red';
+        } else {
+            el.style.borderColor = '#bbb';
+        }
+    }
+
+    function onEventChange(sel) {
+        console.log('onchange: event selected =', sel.value);
+        const fees = { music: 'Rs.500', dance: 'Rs.300', food: 'Free Entry' };
+        document.getElementById('feeInfo').innerText = sel.value ? 'Ticket Price: ' + fees[sel.value] : '';
+        if (sel.value) localStorage.setItem('savedEvent', sel.value);
+    }
+
+    function countChars(el) {
+        document.getElementById('charCount').innerText = el.value.length + ' characters typed';
+    }
+
+    function zoomImg(img) {
+        console.log('ondblclick: image zoom toggled');
+        img.style.transform = img.style.transform === 'scale(1.4)' ? 'scale(1)' : 'scale(1.4)';
+    }
+
+    function submitForm(e) {
+        e.preventDefault();
+        formDirty = false;
+        const name = document.getElementById('name').value;
+        document.getElementById('result').innerText = 'Nandri, ' + name + '! Your registration is confirmed.';
+        alert('Registration submitted successfully!');
+    }
+
+    document.getElementById('promoVideo').oncanplay = function () {
+        document.getElementById('videoStatus').innerText = 'Status: Video is ready to play.';
+        console.log('Video stream loaded and ready');
+    };
+
+    window.onbeforeunload = function () {
+        if (formDirty) return 'You have unsaved information. Leave anyway?';
+    };
+
+    window.onload = function () {
+        console.log('Page loaded - checking localStorage for saved preferences');
+        const saved = localStorage.getItem('savedEvent');
+        if (saved) {
+            const sel = document.getElementById('event');
+            sel.value = saved;
+            onEventChange(sel);
+        }
+    };
+
+    function clearStorage() {
+        localStorage.clear();
+        sessionStorage.clear();
+        document.getElementById('event').value = '';
+        document.getElementById('feeInfo').innerText = '';
+        alert('Preferences cleared!');
+    }
+
+    function findLocation() {
+        const status = document.getElementById('geoStatus');
+        status.innerText = 'Fetching your location...';
+        if (!navigator.geolocation) {
+            status.innerText = 'Geolocation is not supported by your browser.';
+            return;
+        }
+        navigator.geolocation.getCurrentPosition(
+            pos => {
+                status.innerText = 'Location found! Lat: ' + pos.coords.latitude.toFixed(4) + ' | Lon: ' + pos.coords.longitude.toFixed(4);
+            },
+            err => {
+                const msg = { 1: 'Permission denied by user.', 3: 'Request timed out. Try again.' };
+                status.innerText = 'Error: ' + (msg[err.code] || 'Location unavailable.');
+            },
+            { enableHighAccuracy: true, timeout: 6000, maximumAge: 0 }
+        );
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,139 @@
+/* ============================================================
+   styles.css - Cuddalore Community Portal
+   Guhan | Cognizant Digital Nurture 5.0 - CSS3 Module
+   ============================================================ */
+
+/* Task 1: External stylesheet linked from index.html
+   Task 2: Clean CSS with comments labeling each section    */
+
+/* --- Task 3: Universal selector - reset default spacing --- */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+/* --- Task 5: Google Font import --- */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+/* --- Body & Layout --- */
+body {
+    font-family: 'Poppins', Georgia, sans-serif; /* Task 5: font-family */
+    background-color: #f5f0eb;                   /* Task 4: HEX color */
+    color: #222;
+    line-height: 1.6;                            /* Task 5: line-height */
+}
+
+header, main, footer {
+    max-width: 820px;
+    margin: 14px auto;
+    background: #fff;
+    padding: 20px 24px;
+    border-radius: 6px;
+    border: 1px solid #ddd;
+}
+
+/* --- Task 3: ID selector for main header --- */
+#mainHeader {
+    background: linear-gradient(135deg, #1a6fa8, #145d8f); /* Task 4: gradient */
+    color: #fff;
+    border-radius: 6px;
+}
+
+/* --- Task 3: Element selector for all h2 --- */
+h2 {
+    color: #b5451b;
+    border-bottom: 1px solid #e0d6cc;
+    padding-bottom: 6px;
+    margin-bottom: 14px;
+    text-transform: uppercase;   /* Task 5: text-transform */
+    letter-spacing: 1px;         /* Task 5: letter-spacing */
+    font-size: 1rem;
+}
+
+/* --- Task 3: Grouping selector - h3 and p --- */
+h3, p { margin-bottom: 10px; }
+
+/* --- Task 6: Nav list - remove bullets, link pseudo-classes --- */
+nav ul { list-style-type: none; display: flex; gap: 14px; flex-wrap: wrap; margin-top: 10px; }
+nav a:link    { color: #fff; text-decoration: none; font-weight: 600; }
+nav a:visited { color: #cce; }
+nav a:hover   { text-decoration: underline; }
+nav a:active  { color: #ffd; }
+
+/* --- Welcome Banner --- */
+#welcomeBanner {
+    background: #1a6fa8;
+    color: #fff;
+    padding: 14px 18px;
+    border-radius: 5px;
+    margin-bottom: 14px;
+}
+#welcomeBanner h2 { color: #fff; border: none; text-transform: none; letter-spacing: 0; }
+
+.highlight { background: #ffe066; font-weight: bold; padding: 0 4px; }
+
+/* --- Task 7: Table styling --- */
+table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+caption { font-weight: bold; margin-bottom: 8px; color: #555; }
+th { background: #b5451b; color: #fff; padding: 10px; text-align: center; }
+td { padding: 8px; text-align: center; border: 1px solid #e0d6cc; }
+tr:nth-child(even) { background: #fdf6f0; } /* Task 7: zebra striping */
+
+/* --- Image gallery --- */
+.evt-img {
+    width: 140px; height: 95px;
+    object-fit: cover;
+    border: 2px solid #aaa;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: transform 0.2s;
+    display: block; margin: 0 auto 6px;
+}
+
+/* --- Task 3 & 8: .eventCard - class selector + box model --- */
+.eventCard {
+    border: 1px solid #d9cfc7;  /* Task 8: border */
+    padding: 14px 16px;         /* Task 8: padding */
+    margin-bottom: 14px;        /* Task 8: margin */
+    border-radius: 5px;
+}
+.eventCard:hover { outline: 2px solid #1a6fa8; } /* Task 8: outline */
+.eventCard p { font-size: 14px; font-style: italic; color: #555; text-align: justify; } /* Task 5: text-align */
+
+/* --- Task 10 Bonus: Flexbox card grid --- */
+.card-grid { display: flex; flex-wrap: wrap; gap: 14px; }
+.card-grid .eventCard { flex: 1 1 calc(50% - 14px); min-width: 220px; }
+
+/* --- Task 9: Multi-column bulletin --- */
+#bulletin { column-count: 2; column-gap: 30px; column-rule: 1px solid #ccc; font-size: 14px; color: #444; }
+#bulletin h3 { column-span: all; color: #b5451b; }
+
+/* --- Form styles --- */
+.grp { margin-bottom: 12px; }
+label { display: block; font-weight: 600; font-size: 14px; margin-bottom: 3px; }
+input, select, textarea { width: 100%; padding: 7px 9px; border: 1px solid #bbb; border-radius: 4px; font-size: 14px; font-family: inherit; }
+input:focus, select:focus, textarea:focus { outline: 2px solid #1a6fa8; } /* Task 8: outline on focus */
+output { display: block; margin-top: 10px; color: #2e9e58; font-weight: bold; }
+
+/* --- Buttons --- */
+.btn { padding: 9px 16px; border: none; border-radius: 4px; cursor: pointer; font-weight: 600; color: #fff; margin-right: 8px; }
+.btn-green  { background: #2e9e58; }
+.btn-red    { background: #c0392b; }
+.btn-purple { background: #7b4eab; }
+
+hr { border: none; border-top: 1px solid #e0d6cc; margin: 20px 0; }
+footer { text-align: center; color: #777; font-size: 13px; }
+
+/* --- Task 10: Media queries for responsiveness --- */
+@media (max-width: 768px) {
+    nav ul { flex-direction: column; gap: 8px; } /* stack nav vertically */
+    .evt-img { width: 100px; height: 70px; }     /* reduce image size */
+    body { font-size: 14px; }
+    h2 { font-size: 0.95rem; }
+    table, tr, td { display: block; width: 100%; }
+    #bulletin { column-count: 1; }
+    .card-grid .eventCard { flex: 1 1 100%; }
+}
+
+@media (max-width: 480px) {
+    header, main, footer { width: 95vw; margin: 6px auto; padding: 12px; } /* Task 10: vw unit */
+    .btn { display: block; width: 100%; margin-bottom: 8px; }
+    video { width: 100%; height: auto; }
+}
