@@ -1,11 +1,265 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Task 1: HTML5 Base Template -->
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
-    <title>Document</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cuddalore Community Portal - Guhan | DN 5.0</title>
+    <style>
+        body { font-family: Georgia, serif; margin: 0; background: #f5f0eb; color: #222; }
+        header, main, footer { max-width: 800px; margin: 15px auto; background: #fff; padding: 20px; border-radius: 6px; border: 1px solid #ddd; }
+        nav a { margin-right: 14px; color: #b5451b; text-decoration: none; font-weight: bold; }
+        nav a:hover { text-decoration: underline; }
+        #welcomeBanner { background: #1a6fa8; color: #fff; padding: 14px 18px; border-radius: 5px; }
+        .highlight { background: #ffe066; font-weight: bold; padding: 0 3px; }
+        table { width: 100%; border-collapse: collapse; }
+        caption { font-weight: bold; margin-bottom: 8px; color: #555; }
+        td { padding: 8px; text-align: center; border: 1px solid #eee; }
+        .evt-img { width: 140px; height: 95px; object-fit: cover; border: 2px solid #aaa; border-radius: 4px; cursor: pointer; transition: transform 0.2s; }
+        .grp { margin-bottom: 12px; }
+        label { display: block; font-weight: bold; font-size: 14px; margin-bottom: 3px; }
+        input, select, textarea { width: 100%; padding: 7px; box-sizing: border-box; border: 1px solid #bbb; border-radius: 4px; font-size: 14px; }
+        .btn { padding: 9px 16px; border: none; border-radius: 4px; cursor: pointer; font-weight: bold; color: #fff; margin-right: 8px; }
+        .btn-green { background: #2e9e58; } .btn-red { background: #c0392b; } .btn-purple { background: #7b4eab; }
+        output { display: block; margin-top: 10px; color: #2e9e58; font-weight: bold; }
+        h2 { color: #b5451b; border-bottom: 1px solid #eee; padding-bottom: 6px; }
+        hr { border: none; border-top: 1px solid #ddd; margin: 20px 0; }
+        footer { text-align: center; color: #777; font-size: 13px; }
+    </style>
 </head>
 <body>
-    <h1>Hello, World!</h1>
+
+<!-- Navigation -->
+<header>
+    <h1 style="margin:0 0 4px">Cuddalore Local Community Portal</h1>
+    <small>Guhan | Cognizant Digital Nurture 5.0</small>
+    <!-- Task 2: nav with anchor links + external link -->
+    <nav style="margin-top:10px">
+        <a href="#home">Home</a>
+        <a href="#events">Events</a>
+        <a href="#register">Register</a>
+        <a href="help.html" target="_blank">Help</a>
+    </nav>
+</header>
+
+<!-- Main -->
+<main>
+
+    <!-- Home Section -->
+    <section id="home">
+        <!-- Task 3: id banner, blue bg, inline span, highlight class -->
+        <div id="welcomeBanner">
+            <h2 style="margin:0">Welcome,  Resident!</h2>
+            <p style="margin:5px 0 0">Welcome to your city council dashboard.</p>
+        </div>
+        <p style="margin-top:12px">
+            <span style="color:red; font-weight:bold">Special Offer:</span>
+            Register today and get a free <span class="highlight"> lunch token!</span>
+        </p>
+        <p>Note: <span class="highlight">Admissions are on a first-come, first-served basis.</span></p>
+
+        <!-- Task 7: video + oncanplay -->
+        <h3>Event Promo Video</h3>
+        <video id="promoVideo" width="300" height="200" controls>
+            <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <p id="videoStatus" style="color:gray; font-style:italic; font-size:13px"></p>
+    </section>
+
+    <!-- Events Section -->
+    <section id="events">
+        <!-- Task 4: 2x3 image table with alt, title, class, caption -->
+        <h2>Past Community Events Gallery</h2>
+        <table>
+            <caption>Double-click any image to zoom in</caption>
+            <tr>
+                <td>
+                    <img class="evt-img" src="images/jallikattu.png" alt="Jallikattu Festival" title="Jallikattu Festival" ondblclick="zoomImg(this)">
+                    <p>Jallikattu Festival</p>
+                </td>
+                <td>
+                    <img class="evt-img" src="images/music.jpg" alt="Music Night" title="Margazhi Isai" ondblclick="zoomImg(this)">
+                    <p> Music Night</p>
+                </td>
+                <td>
+                    <img class="evt-img" src="images/bharatanatiyam.jpg" alt="Bharatanatyam Show" title="Bharatanatyam" ondblclick="zoomImg(this)">
+                    <p>Bharatanatyam Show</p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <img class="evt-img" src="images/foodfest.jpg" alt="FoodFest" title="Village Food Fest" ondblclick="zoomImg(this)">
+                    <p>Food Fest</p>
+                </td>
+                <td>
+                    <img class="evt-img" src="images/writing.jpg" alt="Creative Workshop" title="Poem Writing" ondblclick="zoomImg(this)">
+                    <p>Creative Writing Workshop</p>
+                </td>
+                <td>
+                    <img class="evt-img" src="images/web-Gully_Cricket.jpg" alt="Gully Cricket Cup" title="Local Cricket Match" ondblclick="zoomImg(this)">
+                    <p>Gully Cricket Cup</p>
+                </td>
+            </tr>
+        </table>
+    </section>
+
+    <!-- Register Section -->
+    <section id="register">
+        <!-- Task 5 & 6: form with input types, events, validation, output -->
+        <h2>Event Registration</h2>
+        <form id="myForm" onsubmit="submitForm(event)">
+
+            <div class="grp">
+                <label for="name">Full Name *</label>
+                <input type="text" id="name" placeholder="e.g. Guhan Rajasekaran" required autofocus>
+            </div>
+            <div class="grp">
+                <label for="email">Email Address *</label>
+                <input type="email" id="email" placeholder="abcdefgh@example.com" required>
+            </div>
+            <div class="grp">
+                <label for="phone">Phone Number (Task 6: onblur validation)</label>
+                <input type="tel" id="phone" placeholder="9876543210" onblur="validatePhone(this)">
+            </div>
+            <div class="grp">
+                <label for="date">Event Date *</label>
+                <input type="date" id="date" required>
+            </div>
+            <div class="grp">
+                <label for="event">Select Event * (Task 6: onchange fee | Task 8: storage)</label>
+                <select id="event" required onchange="onEventChange(this)">
+                    <option value="">-- Choose an Event --</option>
+                    <option value="music">Bharatanatyam Show (Rs.500)</option>
+                    <option value="dance">Music Fest (Rs.300)</option>
+                    <option value="food">Food Fest (Free)</option>
+                </select>
+                <p id="feeInfo" style="color:#1a6fa8; font-weight:bold; margin:5px 0 0; font-size:14px"></p>
+            </div>
+            <div class="grp">
+                <label for="feedback">Feedback (Task 6: onkeyup character count)</label>
+                <textarea id="feedback" rows="3" placeholder="Share your thoughts about the event..." onkeyup="countChars(this)"></textarea>
+                <small id="charCount" style="color:gray">0 characters typed</small>
+            </div>
+
+            <!-- Task 6: onclick logs | Task 5: output element -->
+            <button type="submit" class="btn btn-green" onclick="console.log('Submit clicked')">Submit Registration</button>
+            <button type="button" class="btn btn-red" onclick="clearStorage()">Clear Preferences</button>
+            <output id="result"></output>
+        </form>
+
+        <hr>
+
+        <!-- Task 9: Geolocation -->
+        <h3>Find Nearest Event Hub</h3>
+        <button type="button" class="btn btn-purple" onclick="findLocation()">Find Nearby Events</button>
+        <p id="geoStatus" style="font-weight:bold; font-size:14px"></p>
+    </section>
+
+</main>
+
+<!-- Footer -->
+<footer>
+    <p>Thank you for visiting our event page! | Guhan's Submission - Cognizant Digital Nurture 5.0</p>
+</footer>
+
+<!-- JavaScript -->
+<script>
+    // Track unsaved form changes (Task 7)
+    let formDirty = false;
+    document.getElementById('myForm').addEventListener('input', () => formDirty = true);
+
+    // Task 6: onblur - validate Indian mobile number
+    function validatePhone(el) {
+        console.log('onblur: phone field validated');
+        if (el.value && !/^[6-9]\d{9}$/.test(el.value)) {
+            alert('Please enter a valid 10-digit Indian mobile number!');
+            el.style.borderColor = 'red';
+        } else {
+            el.style.borderColor = '#bbb';
+        }
+    }
+
+    // Task 6: onchange - show fee | Task 8: save to localStorage
+    function onEventChange(sel) {
+        console.log('onchange: event selected =', sel.value);
+        const fees = { music: 'Rs.500', dance: 'Rs.300', food: 'Free Entry' };
+        document.getElementById('feeInfo').innerText = sel.value ? 'Ticket Price: ' + fees[sel.value] : '';
+        if (sel.value) localStorage.setItem('savedEvent', sel.value);
+    }
+
+    // Task 6: onkeyup - character counter
+    function countChars(el) {
+        document.getElementById('charCount').innerText = el.value.length + ' characters typed';
+    }
+
+    // Task 4 & 6: ondblclick - toggle zoom on image
+    function zoomImg(img) {
+        console.log('ondblclick: image zoom toggled');
+        img.style.transform = img.style.transform === 'scale(1.4)' ? 'scale(1)' : 'scale(1.4)';
+    }
+
+    // Task 5: form submit - show confirmation via output element
+    function submitForm(e) {
+        e.preventDefault();
+        formDirty = false;
+        const name = document.getElementById('name').value;
+        document.getElementById('result').innerText = 'Nandri, ' + name + '! Your registration is confirmed.';
+        alert('Registration submitted successfully!');
+    }
+
+    // Task 7: video ready status
+    document.getElementById('promoVideo').oncanplay = function () {
+        document.getElementById('videoStatus').innerText = 'Status: Video is ready to play.';
+        console.log('Video stream loaded and ready');
+    };
+
+    // Task 7: warn before leaving with unsaved form data
+    window.onbeforeunload = function () {
+        if (formDirty) return 'You have unsaved information. Leave anyway?';
+    };
+
+    // Task 8: restore saved preference on page load
+    window.onload = function () {
+        console.log('Page loaded - checking localStorage for saved preferences');
+        const saved = localStorage.getItem('savedEvent');
+        if (saved) {
+            const sel = document.getElementById('event');
+            sel.value = saved;
+            onEventChange(sel);
+        }
+    };
+
+    // Task 8: clear localStorage and sessionStorage
+    function clearStorage() {
+        localStorage.clear();
+        sessionStorage.clear();
+        document.getElementById('event').value = '';
+        document.getElementById('feeInfo').innerText = '';
+        alert('Preferences cleared!');
+    }
+
+    // Task 9: geolocation with high accuracy + error handling
+    function findLocation() {
+        const status = document.getElementById('geoStatus');
+        status.innerText = 'Fetching your location...';
+        if (!navigator.geolocation) {
+            status.innerText = 'Geolocation is not supported by your browser.';
+            return;
+        }
+        navigator.geolocation.getCurrentPosition(
+            pos => {
+                // Task 10: Set a DevTools breakpoint here to inspect the 'pos' object live
+                status.innerText = 'Location found! Lat: ' + pos.coords.latitude.toFixed(4) + ' | Lon: ' + pos.coords.longitude.toFixed(4);
+            },
+            err => {
+                const msg = { 1: 'Permission denied by user.', 3: 'Request timed out. Try again.' };
+                status.innerText = 'Error: ' + (msg[err.code] || 'Location unavailable.');
+            },
+            { enableHighAccuracy: true, timeout: 6000, maximumAge: 0 }
+        );
+    }
+</script>
+
 </body>
 </html>
