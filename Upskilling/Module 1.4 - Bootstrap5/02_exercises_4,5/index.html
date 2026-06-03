@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bootstrap exercises 4, 5</title>
+     
+    <style>
+    
+        .box { border: 2px solid #333; padding: 20px; background-color: #f0f0f0; margin-bottom: 10px; }
+        .row { margin-bottom: 30px; border: 1px dashed blue; }
+    </style>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+</head>
+</head>
+<body>
+       <div class="container mt-8">
+        <h1>Bootstrap Grid Exercises</h1>
+
+    
+        <h3> Ex - 4.1 Two-Column Layout</h3>
+        <div class="row">
+            <div class="col-md-3 box">Sidebar (col-md-3)</div>
+            <div class="col-md-9 box">Main Content (col-md-9)</div>
+        </div>
+
+        <h3> Ex- 4.2 Four-Column Layout</h3>
+        <div class="row">
+            <div class="col-sm-3 box">Col 1</div>
+            <div class="col-sm-3 box">Col 2</div>
+            <div class="col-sm-3 box">Col 3</div>
+         <div class="col-sm-3 box ">Col 4</div> 
+        </div>
+
+        <h3> Ex - 5.1 Centering Content</h3>
+        <div class="row justify-content-center align-items-center" style="height: 150px;">
+            <div class="col-4 box">I am centered!</div>
+        </div>
+
+        <h3> Ex - 5.2 Reordering Columns</h3>
+        <div class="row">
+            <div class="col-md-6 order-md-2 box">Column A (Moves to the right on desktop)</div>
+            <div class="col-md-6 order-md-1 box">Column B (Moves to the left on desktop)</div>
+        </div>
+    </div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+</html>

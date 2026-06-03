@@ -1,0 +1,6 @@
+// 1. Override default Bootstrap variables before importing
+$primary: #008080; 
+$border-radius: 12px;
+
+// 2. Import the actual Bootstrap stylesheet source
+@import "node_modules/bootstrap/scss/bootstrap";
